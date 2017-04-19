@@ -3,18 +3,114 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
         <meta name="mobile-web-app-capable" content="yes">
-        <meta name="theme-color" content="#4a525a">
-        <title>LaSalle Mozilla Campus Club</title>
+        <meta name="theme-color" content="#EEEEEE">
+        <link rel="shortcut icon" href="img/moz-social-cyan-rgb.png">
+
+        <title>MCC Unilasalle-RJ</title>
         <style>
-            @font-face {
-                font-family: Roboto Slab;
-                src: url(font/RobotoSlab-Light.ttf);
-            }
+            
             *{border: 0; margin: 0; padding: 0;}
-            body{ background: #4a525a; font-family: 'Roboto Slab', serif; color: white;}
+            ::selection { background: #82D1F5; color: #000; }
+            ::-moz-selection { background: #82D1F5; color: #000; }
+            body{ background: #fff; height: 100%;}
+            #logo{ 
+                position: relative; 
+                width: 60%;
+                height: 100%;
+                                
+                float: right;
+
+            }
+            #logo img {
+                position: absolute;
+                top: 50%;
+                margin-top: -94.5;
+                margin-left: 10px;
+                
+            }
+            #terminal-area{
+                position: relative;
+                width: 40%;
+                height: 100%;
+            }
+            #terminal-area, #terminal, input{
+                background-color: #000;
+                color: #fff;
+            }
+
+            #terminal{ padding: 10px; }
+            
+            
+            textarea#setter {
+				left: -1000px;
+				position: absolute;
+			}
+			.cursor {
+				font-size: 12px;
+				background-color: #fff;
+				color: #fff;
+				position: relative;
+                
+                animation: blink-animation 1s steps(5, start) infinite;
+                -webkit-animation: blink-animation 1s steps(5, start) infinite;
+			}	
+            @keyframes blink-animation {
+                to {
+                    visibility: hidden;
+                }
+            }
+            @-webkit-keyframes blink-animation {
+                to {
+                    visibility: hidden;
+                }
+            }
+            
+            #writer {
+				font-family: cursor, courier;
+				font-weight: bold;
+			}
+            #getter {
+
+            }
+
+            .terminal{
+                background: #000;
+                color: #fff;
+                overflow: hidden;
+                
+            }
+            
+            @media screen and (max-width: 600px){
+                #logo{ float: none; height: 200px; }
+                #logo img{ height: 120px; margin-top: -60px}
+                #terminal-area{ width: 100%; height: calc(100% - 200px); }
+            }
+            
         </style>
     </head>
     <body>
-        Em breve
+        <div id="logo">
+            <img src="img/logo.png"></img>
+        </div>
+        <div id="terminal-area"> 
+
+            
+
+            
+            <div id="terminal" onclick="$('setter').focus();">
+                <textarea type="text" id="setter" onkeydown="writeit(this, event);moveIt(this.value.length, event);" onkeyup="writeit(this, event)" onkeypress="writeit(this, event);"></textarea>
+                <div id="getter">
+                    <span id="writer">mcc@unilasalle-rj:~$ EM BREVE </span>
+                    <b class="cursor" id="cursor">[]</b>
+                </div>
+            </div>
+        </div>
     </body>
-</html
+
+
+
+
+
+
+
+</html>
