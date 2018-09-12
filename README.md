@@ -1,2 +1,2 @@
-# LaSalleMozillaCampusClub.github.io
+# LaSalle Mozilla CampusClub
 Blog do LaSalle Mozilla Campus Club 
